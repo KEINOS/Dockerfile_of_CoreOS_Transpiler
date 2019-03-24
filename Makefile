@@ -1,5 +1,5 @@
 NAME=config-transpiler
-VERSION=alpine
+VERSION=latest
 
 build: 
 	docker image build --tag $(NAME):$(VERSION) . 
