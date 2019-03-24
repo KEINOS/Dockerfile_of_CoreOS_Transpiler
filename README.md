@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/KEINOS/Dockerfile_of_CoreOS_Transpiler.svg?style=svg)](https://circleci.com/gh/KEINOS/Dockerfile_of_CoreOS_Transpiler)
+
 # Dockerfile for CoreOS Configuration Transpiler
 
 Builds Alpine docker image with CoreOS' transpiler tool.
