@@ -14,7 +14,7 @@ This dockerfile builds a docker image of a simple "[CoreOS Transpiler](https://g
 docker pull keinos/coreos-transpiler
 ```
 
-- DockerHub: <https://cloud.docker.com/u/keinos/repository/docker/keinos/coreos-transpiler>
+- DockerHub: <https://hub.docker.com/r/keinos/coreos-transpiler>
 
 ## Basic usage
 
