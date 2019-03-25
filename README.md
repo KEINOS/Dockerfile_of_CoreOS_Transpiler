@@ -14,7 +14,7 @@ This dockerfile builds a docker image of a simple "[CoreOS Transpiler](https://g
 docker pull keinos/coreos-transpiler
 ```
 
-- [DockerHub](https://cloud.docker.com/u/keinos/repository/docker/keinos/coreos-transpiler): <https://cloud.docker.com/u/keinos/repository/docker/keinos/coreos-transpiler>
+- DockerHub: <https://cloud.docker.com/u/keinos/repository/docker/keinos/coreos-transpiler>
 
 ## Basic usage
 
@@ -44,15 +44,20 @@ cloud-config.yml    ignition.json
 ## Build your own
 
 1. Clone the repo from GitHub
-
-- [GitHub](https://github.com/KEINOS/Dockerfile_of_CoreOS_Transpiler): <https://github.com/KEINOS/Dockerfile_of_CoreOS_Transpiler>
-
-1. Build
-
-  If you have `make` installed then just run `make`. 
-  
-  Or build the image in ordinary way:
-
-  ```bash
-  docker image build --tag config-transpiler:latest .
-  ```
+    - GitHub: <https://github.com/KEINOS/Dockerfile_of_CoreOS_Transpiler>
+1. If you have `make` installed then just run `make` to build the docker image. 
+    ```bash
+    $ ls
+    Dockerfile  LICENSE    Makefile   README.md
+    $ make
+    ...
+    Successfully built 74db61a427af
+    Successfully tagged config-transpiler:latest
+    $ docker image prune -f
+    $ docker image ls | grep config-transpiler
+    config-transpiler    latest    74db61a427af    2 minutes ago   13.5MB
+    ```
+1. OR build the image in ordinary way:
+    ```bash
+    docker image build --tag config-transpiler:latest .
+    ```
