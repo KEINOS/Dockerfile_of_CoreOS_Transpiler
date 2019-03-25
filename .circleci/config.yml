@@ -19,4 +19,4 @@ jobs:
           command: make
       - run:
           name: Run test
-          command: docker run --rm -it config-transpiler:alpine ct -version
+          command: docker run --rm -it config-transpiler:latest ct -version
