@@ -34,30 +34,43 @@ docker run --rm -v $(pwd):/data keinos/coreos-transpiler ct --help
 $ ls
 cloud-config.yml
 $ docker run --rm \
-> -v $(pwd):/data \
-> keinos/coreos-transpiler \
-> ct -in-file /data/cloud-config.yml -out-file /data/ignition.json
+>   -v $(pwd):/data \
+>   keinos/coreos-transpiler \
+>   ct -in-file /data/cloud-config.yml -out-file /data/ignition.json
 $ ls
 cloud-config.yml    ignition.json
 ```
 
 ## Build your own
 
+### Easy way
+
+```bash
+docker image build --tag config-transpiler:latest https://github.com/KEINOS/Dockerfile_of_CoreOS_Transpiler.git
+```
+
+### Tipical way
+
 1. Clone the repo from GitHub
-    - GitHub: <https://github.com/KEINOS/Dockerfile_of_CoreOS_Transpiler>
+
+  - GitHub: <https://github.com/KEINOS/Dockerfile_of_CoreOS_Transpiler>
+
 1. If you have `make` installed then just run `make` to build the docker image. 
-    ```bash
-    $ ls
-    Dockerfile  LICENSE    Makefile   README.md
-    $ make
-    ...
-    Successfully built 74db61a427af
-    Successfully tagged config-transpiler:latest
-    $ docker image prune -f
-    $ docker image ls | grep config-transpiler
-    config-transpiler    latest    74db61a427af    2 minutes ago   13.5MB
-    ```
+
+  ```bash
+  $ ls
+  Dockerfile  LICENSE    Makefile   README.md
+  $ make
+  ...
+  Successfully built 74db61a427af
+  Successfully tagged config-transpiler:latest
+  $ docker image prune -f
+  $ docker image ls | grep config-transpiler
+  config-transpiler    latest    74db61a427af    2 minutes ago   13.5MB
+  ```
+
 1. OR build the image in ordinary way:
-    ```bash
-    docker image build --tag config-transpiler:latest .
-    ```
+
+  ```bash
+  docker image build --tag config-transpiler:latest .
+  ```
