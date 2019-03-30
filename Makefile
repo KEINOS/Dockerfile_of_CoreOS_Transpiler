@@ -1,5 +1,5 @@
 NAME=config-transpiler
-VERSION=0.0.1
+VERSION=latest
 
 build: 
 	docker image build --no-cache --tag $(NAME):$(VERSION) .
