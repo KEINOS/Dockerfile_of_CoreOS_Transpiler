@@ -21,6 +21,4 @@ jobs:
       - run:
           name: Run test
           command: |
-            ls -la; \
-            ignition=$(docker run --rm -it config-transpiler:latest ct -in-file ./.circleci/sample_cl-config.yml)
-            control=$(cat ./.circleci/sample_cl-config.yml)
+            docker run --rm -v $(pwd)/test.d:/test config-transpiler:latest /bin/sh /test/run_test.sh
