@@ -10,4 +10,5 @@ build:
 	  .
 	docker image prune -f
 	docker image ls | grep $(NAME)
+test:
 	docker run --rm $(NAME):$(VERSION) /test/run_test.sh

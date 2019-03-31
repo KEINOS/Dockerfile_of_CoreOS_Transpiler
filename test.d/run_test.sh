@@ -18,11 +18,7 @@ if [ $? -ne 0 ]; then
   echo 'No "ct" command found.'
   exit 1
 fi
-echo 'OK'
-
-# Show version of 'ct'
-echo -n '- Version: '
-ct --version
+echo "OK ($(ct --version))"
 
 # Define paths
 PATH_DIR_SCRIPT=$(cd $(dirname $0); pwd)
