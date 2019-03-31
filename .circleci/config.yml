@@ -21,4 +21,4 @@ jobs:
       - run:
           name: Run test
           command: |
-            docker run --rm -v $(pwd)/test.d:/test config-transpiler:latest /bin/sh /test/run_test.sh
+            docker run --rm -v "$(pwd)/test.d":/test config-transpiler:latest ls -la /test
