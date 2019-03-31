@@ -2,9 +2,10 @@ version: 2
 jobs:
   build:
     working_directory: /app
-    # Build on docker image with git
+    # Docker image
     docker:
-      - image: docker:17.05.0-ce-git
+      # image: docker:17.05.0-ce-git
+      - image: docker:stable-git
     steps:
       - checkout
       # Prevent docker-in-docker problem
@@ -19,4 +20,7 @@ jobs:
           command: make
       - run:
           name: Run test
-          command: docker run --rm -it config-transpiler:latest ct -version
+          command: |
+            ls -la; \
+            ignition=$(docker run --rm -it config-transpiler:latest ct -in-file ./.circleci/sample_cl-config.yml)
+            control=$(cat ./.circleci/sample_cl-config.yml)
