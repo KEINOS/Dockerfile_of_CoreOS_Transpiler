@@ -20,4 +20,7 @@ LABEL maintainer="https://github.com/KEINOS" \
       usage="https://hub.docker.com/r/keinos/coreos-transpiler" \
       description="Alpine container of 'ct' (Configuration Transpiler for CoreOS Container Linux)"
 COPY --from=build-env /container-linux-config-transpiler/bin/ct /usr/bin/ct
+COPY test.d/run_test.sh /test/
+COPY test.d/sample_* /test/
 CMD ["/usr/bin/ct"]
+HEALTHCHECK CMD /test/run_test.sh

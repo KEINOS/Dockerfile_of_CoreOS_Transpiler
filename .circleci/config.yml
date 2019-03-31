@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     working_directory: /app
-    # Docker image
+    # Docker image for docker in docker
     docker:
       # image: docker:17.05.0-ce-git
       - image: docker:stable-git
@@ -12,13 +12,11 @@ jobs:
       - setup_remote_docker
       - run:
           name: Install dependencies
-          command: |
-            apk add --no-cache \
-              make
+          command: apk add --no-cache make
       - run:
-          name: Make docker image
+          name: Build docker image
           command: make
       - run:
           name: Run test
           command: |
-            docker run --rm -v "$(pwd)/test.d":/test config-transpiler:latest ls -la /test
+            docker run --rm config-transpiler:latest /test/run_test.sh
