@@ -6,10 +6,15 @@ jobs:
     docker:
       # image: docker:17.05.0-ce-git
       - image: docker:stable-git
+        environment:
+          CIRCLE_TEST_REPORTS: /tmp/test-results
     steps:
       - checkout
       # Prevent docker-in-docker problem
       - setup_remote_docker
+      - run:
+          name: Makedir for test results
+          command: mkdir -p ${CIRCLE_TEST_REPORTS}
       - run:
           name: Install dependencies
           command: apk add --no-cache make
@@ -25,6 +30,3 @@ workflows:
   test-and-build-docker:
     jobs:
       - build
-      - dockerfile:
-          requires:
-            - build

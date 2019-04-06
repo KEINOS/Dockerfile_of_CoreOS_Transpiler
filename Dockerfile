@@ -12,7 +12,7 @@ RUN apk update && \
   echo '====>> Git describe: '; git describe --all && \
   echo '====>> Run: make'; make -d | grep Success | sed -e 's/^[ ]*//g' && \
   echo '====>> Version:'; ./bin/ct --version && \
-  echo '---->> Done: make' \
+  echo '---->> Done: make' && \
   echo 'Begin Second stage build'
 
 # Copy Bin and build image
