@@ -20,3 +20,11 @@ jobs:
           name: Run test
           command: |
             docker run --rm config-transpiler:latest /test/run_test.sh
+workflows:
+  version: 2
+  test-and-build-docker:
+    jobs:
+      - build
+      - dockerfile:
+          requires:
+            - build
