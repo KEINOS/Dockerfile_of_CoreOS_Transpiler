@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-echo ' Running Circle CI localy ...'
+# Run this script to run test locally via CircleCI CLI
+#
+
+echo ' Running CircleCI locally ...'
 echo '------------------------------'
 
 # Check Docker
@@ -19,8 +22,10 @@ if [ $? -ne 0 ]; then
     exit $LINENO
 fi
 
+# Move current directory
 PATH_DIR_SCRIPT=$(cd $(dirname $0); pwd)
 PATH_DIR_PARENT=$(dirname $PATH_DIR_SCRIPT)
+cd $PATH_DIR_PARENT
 
-# Run CicleCI
+# Run CircleCI CLI
 circleci build ${PATH_DIR_PARENT}/.circleci/config.yml
