@@ -4,9 +4,12 @@
 
 Alpine docker image with CoreOS' transpiler tool.
 
+This dockerfile builds a docker image of a simple "[CoreOS Transpiler](https://github.com/coreos/container-linux-config-transpiler)" container running on Alpine linux. Especially for transpiling "CoreOS Container Linux Configuration" file (YAML) to "CoreOS Ignition" file (JSON).
+
+**NOTE**: The ordinary ["coreos-cloudinit" has been deprecated](https://github.com/coreos/coreos-cloudinit). If you want to install "coreos-cloudinit" command to verify/validate the "cloud-config" configuration file, use the "[Configuration transpiler](https://github.com/coreos/container-linux-config-transpiler)" tool or this docker image instead.
+
 - See more about: [CoreOS Container Linux Configuration Transpiler Tool](https://github.com/coreos/container-linux-config-transpiler) @ GitHub
 
-This dockerfile builds a docker image of a simple "[CoreOS Transpiler](https://github.com/coreos/container-linux-config-transpiler)" container running on Alpine linux. Especially for transpiling "CoreOS Container Linux Configuration" file (YAML) to "CoreOS Ignition" file (JSON).
 
 ## Pull from DockerHub
 
@@ -16,19 +19,19 @@ docker pull keinos/coreos-transpiler
 
 - DockerHub: <https://hub.docker.com/r/keinos/coreos-transpiler>
 
-## Basic usage
+### Basic usage
 
 ```bash
 docker run --rm -v $(pwd):/data keinos/coreos-transpiler ct <arg> [<arg> <arg> ...]
 ```
 
-## See help
+### See help
 
 ```bash
 docker run --rm -v $(pwd):/data keinos/coreos-transpiler ct --help
 ```
 
-## Sample usage
+### Sample usage
 
 ```shellsession
 $ ls
