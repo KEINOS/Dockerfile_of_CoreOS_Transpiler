@@ -74,6 +74,6 @@ docker image build --tag config-transpiler:latest https://github.com/KEINOS/Dock
 
 1. OR build the image in ordinary way:
 
-  ```bash
-  docker image build --tag config-transpiler:latest .
-  ```
+    ```bash
+    docker image build --tag config-transpiler:latest .
+    ```
