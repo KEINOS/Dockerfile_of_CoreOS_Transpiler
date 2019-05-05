@@ -2,7 +2,7 @@
 
 # Dockerfile for CoreOS Configuration Transpiler
 
-Alpine docker container with `ct` command, the [Configuration Transpiler](https://github.com/coreos/container-linux-config-transpiler)) tool for CoreOS.
+Alpine docker container with `ct` command, the [Configuration Transpiler](https://github.com/coreos/container-linux-config-transpiler) tool for CoreOS.
 
 Use this container to transpile YAML to JSON. Such as "CoreOS Container Linux Configuration" file to "CoreOS Ignition" file.
 
@@ -55,7 +55,7 @@ docker image build --tag config-transpiler:latest https://github.com/KEINOS/Dock
 
 ### Tipical way
 
-1. Clone the repo from GitHub
+1. Clone the repo from GitHub.
 
     - GitHub: [https://github.com/KEINOS/Dockerfile_of_CoreOS_Transpiler](https://github.com/KEINOS/Dockerfile_of_CoreOS_Transpiler)
 
