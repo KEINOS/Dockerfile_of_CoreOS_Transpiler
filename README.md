@@ -2,14 +2,15 @@
 
 # Dockerfile for CoreOS Configuration Transpiler
 
-Alpine docker image with CoreOS' transpiler tool.
+Alpine docker container with `ct` command, the [Configuration Transpiler](https://github.com/coreos/container-linux-config-transpiler)) tool for CoreOS.
 
-This dockerfile builds a docker image of a simple "[CoreOS Transpiler](https://github.com/coreos/container-linux-config-transpiler)" container running on Alpine linux. Especially for transpiling "CoreOS Container Linux Configuration" file (YAML) to "CoreOS Ignition" file (JSON).
+Use this container to transpile YAML to JSON. Such as "CoreOS Container Linux Configuration" file to "CoreOS Ignition" file.
 
-**NOTE**: The ordinary ["coreos-cloudinit" has been deprecated](https://github.com/coreos/coreos-cloudinit). If you want to install "coreos-cloudinit" command to verify/validate the "cloud-config" configuration file, use the "[Configuration transpiler](https://github.com/coreos/container-linux-config-transpiler)" tool or this docker image instead.
-
+- Image built: keinos/coreos-transpiler @ DockerHub
+- Dockerfile : https://github.com/KEINOS/Dockerfile_of_CoreOS_Transpiler @ GitHub
 - See more about: [CoreOS Container Linux Configuration Transpiler Tool](https://github.com/coreos/container-linux-config-transpiler) @ GitHub
 
+**NOTE**: The ordinary ["coreos-cloudinit" has been deprecated](https://github.com/coreos/coreos-cloudinit). If you want to install "coreos-cloudinit" command to verify/validate the "cloud-config" configuration file, use the "[Configuration transpiler](https://github.com/coreos/container-linux-config-transpiler)" tool or this docker image instead.
 
 ## Pull from DockerHub
 
@@ -22,14 +23,14 @@ docker pull keinos/coreos-transpiler
 ### Basic usage
 
 ```bash
-docker run --rm -v $(pwd):/data keinos/coreos-transpiler ct <arg> [<arg> <arg> ...]
+docker run --rm -v $(pwd):/data keinos/coreos-transpiler ct [ARG] [[ARG] [ARG] ...]
 ```
 
-### See help
+- NOTE: `ARG`s are the arguments for `ct`(the transpiler tool) command. For example to see the help of `ct` would be:
 
-```bash
-docker run --rm -v $(pwd):/data keinos/coreos-transpiler ct --help
-```
+    ```bash
+    docker run --rm keinos/coreos-transpiler ct --help
+    ```
 
 ### Sample usage
 
@@ -37,9 +38,9 @@ docker run --rm -v $(pwd):/data keinos/coreos-transpiler ct --help
 $ ls
 cloud-config.yml
 $ docker run --rm \
->   -v $(pwd):/data \
->   keinos/coreos-transpiler \
->   ct -in-file /data/cloud-config.yml -out-file /data/ignition.json
+    -v $(pwd):/data \
+    keinos/coreos-transpiler \
+    ct -in-file /data/cloud-config.yml -out-file /data/ignition.json
 $ ls
 cloud-config.yml    ignition.json
 ```
@@ -56,9 +57,9 @@ docker image build --tag config-transpiler:latest https://github.com/KEINOS/Dock
 
 1. Clone the repo from GitHub
 
-    - GitHub: <https://github.com/KEINOS/Dockerfile_of_CoreOS_Transpiler>
+    - GitHub: [https://github.com/KEINOS/Dockerfile_of_CoreOS_Transpiler](https://github.com/KEINOS/Dockerfile_of_CoreOS_Transpiler)
 
-1. If you have `make` installed then just run `make` to build the docker image. 
+1. If you have `make` installed then just run `make` to build the docker image.
 
     ```bash
     $ ls
@@ -67,7 +68,6 @@ docker image build --tag config-transpiler:latest https://github.com/KEINOS/Dock
     ...
     Successfully built 74db61a427af
     Successfully tagged config-transpiler:latest
-    $ docker image prune -f
     $ docker image ls | grep config-transpiler
     config-transpiler    latest    74db61a427af    2 minutes ago   13.5MB
     ```
