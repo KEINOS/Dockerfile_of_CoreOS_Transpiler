@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/KEINOS/Dockerfile_of_CoreOS_Transpiler.svg?style=svg)](https://circleci.com/gh/KEINOS/Dockerfile_of_CoreOS_Transpiler)
+[![CircleCI](https://circleci.com/gh/KEINOS/Dockerfile_of_CoreOS_Transpiler.svg?style=svg)](https://circleci.com/gh/KEINOS/Dockerfile_of_CoreOS_Transpiler) [![](https://images.microbadger.com/badges/image/keinos/coreos-transpiler.svg)](https://microbadger.com/images/keinos/coreos-transpiler "See build info on microbadger.com") [![](https://img.shields.io/docker/cloud/automated/keinos/coreos-transpiler.svg)](https://hub.docker.com/r/keinos/coreos-transpiler) [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/keinos/coreos-transpiler.svg)](https://hub.docker.com/r/keinos/coreos-transpiler)
 
 # Dockerfile for CoreOS Configuration Transpiler
 
