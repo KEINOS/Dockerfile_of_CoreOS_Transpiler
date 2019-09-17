@@ -13,6 +13,11 @@ jobs:
       # Prevent docker-in-docker problem
       - setup_remote_docker
       - run:
+          name: Display Server Env Info
+          command: |
+            docker version && \
+            cat /etc/os-release
+      - run:
           name: Makedir for test results
           command: mkdir -p ${CIRCLE_TEST_REPORTS}
       - run:

@@ -16,7 +16,7 @@ RUN apk update && \
   echo 'Begin Second stage build'
 
 # Copy Bin and build image
-FROM alpine:3.8
+FROM keinos/alpine:latest
 LABEL maintainer="https://github.com/KEINOS" \
   usage="https://hub.docker.com/r/keinos/coreos-transpiler" \
   description="Alpine container of 'ct' (Configuration Transpiler for CoreOS Container Linux)"
